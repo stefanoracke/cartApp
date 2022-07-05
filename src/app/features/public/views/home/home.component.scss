@@ -1,5 +1,5 @@
 .body{
-    background: linear-gradient(180deg, rgb(71 85 105) ,rgb(56, 56, 56), );
+    background: linear-gradient(180deg, var(--blue) ,var(--secondaryBlue), );
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -13,7 +13,7 @@
 }
 
 .welcome{
-    color: #fff;
+    color: var(--mainWhite);
     letter-spacing: 4px;
     font-size: 5rem;
     font-weight: 800;
@@ -24,7 +24,7 @@
     position: absolute;
     bottom: 10px;
     right: 70px;
-    color: white;
+    color: var(--mainWhite);
     text-shadow: 2px, 2px, 7px black;
     
     letter-spacing: 1px;
@@ -34,7 +34,7 @@
 
 .catalogue a{
     text-decoration: none;
-    color: #fff;
+    color: var(--mainWhite);
 }
 
 .catalogue:hover{

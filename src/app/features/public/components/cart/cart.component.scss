@@ -1,0 +1,21 @@
+.cortina{
+    z-index: 999999;
+    top: 0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.726);
+    min-height: 100vh;
+    position: fixed;
+    display: none;
+}
+
+.sidebar {
+    height: 100%;
+    width: 35%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 40px;
+    background: linear-gradient(180deg, rgb(71 85 105) ,rgb(56, 56, 56), );
+    border-left: 1px solid rgb(78, 77, 77);
+}
