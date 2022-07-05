@@ -7,6 +7,8 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { CatalogueComponent } from './views/catalogue/catalogue.component';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MaterialModule } from 'src/app/core/utils/material/material.module';
 
 
 @NgModule({
@@ -19,7 +21,10 @@ import { CatalogueComponent } from './views/catalogue/catalogue.component';
   imports: [
     CommonModule,
     PublicRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
   ]

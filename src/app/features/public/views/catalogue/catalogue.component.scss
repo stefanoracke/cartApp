@@ -1,0 +1,29 @@
+.body{
+    padding-top: 15vh;
+}
+
+.search{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-line{
+    width:80%;
+}
+
+.items-container{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.items{
+    min-width: 250px;
+    padding: 10px;
+    min-height: 350px;
+    box-shadow: 1px 2px 2px 2px grey;
+    border-radius: 20px;
+}

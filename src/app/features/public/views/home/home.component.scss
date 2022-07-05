@@ -1,5 +1,5 @@
 .body{
-    background: linear-gradient(180deg, rgb(71 85 105) ,rgb(56, 56, 56), );
+    background: linear-gradient(180deg, var(--blue) ,var(--secondaryBlue), );
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -7,14 +7,26 @@
     bottom: 0;
     left: 0;
     right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome{
+    color: var(--mainWhite);
+    letter-spacing: 4px;
+    font-size: 5rem;
+    font-weight: 800;
+    text-shadow: 3px 3px 3px rgb(126, 122, 122);
 }
 
 .catalogue{
     position: absolute;
     bottom: 10px;
     right: 70px;
-    color: white;
-    text-shadow: 2px, 2px, 2px rgb(138, 143, 150);
+    color: var(--mainWhite);
+    text-shadow: 2px, 2px, 7px black;
+    
     letter-spacing: 1px;
     cursor: pointer;
     transition: 0.5s ease all;
@@ -22,7 +34,7 @@
 
 .catalogue a{
     text-decoration: none;
-    color: #fff;
+    color: var(--mainWhite);
 }
 
 .catalogue:hover{
