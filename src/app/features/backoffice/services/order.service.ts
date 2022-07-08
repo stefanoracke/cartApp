@@ -42,7 +42,7 @@ export class OrderService {
         })        
         resolve(this.orderCollection.doc(id).set(data))
       } catch (error) {
-        console.log(error)
+        
         Swal.fire({
           title: 'Error!',
           text: 'Do you want to continue',

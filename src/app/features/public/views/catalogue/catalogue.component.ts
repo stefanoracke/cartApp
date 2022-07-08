@@ -28,7 +28,7 @@ export class CatalogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.newOrder = this.getCart()
-    console.log(this.newOrder)
+    
   }
 
   saveCart(order:OrderI){
