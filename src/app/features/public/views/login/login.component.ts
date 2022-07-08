@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -8,13 +9,37 @@ import {FormControl, Validators} from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnChanges {
 
-  constructor() {
+  @Input() loginDisplay: boolean = false;
+  @Output() newBooleanEvent = new EventEmitter<boolean>();
+
+  constructor(private authS: AuthService) {
     
    }
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
+
+  usuario = {
+    email:'',
+    password:''
+  }
+
+  login(){
+    const {email, password} = this.usuario;
+
+    this.authS.login(email, password).then(res =>{
+      console.log("Logeado: ",res)
+    })
+  }
+
+  loginWithGoogle(){
+    const {email, password} = this.usuario;
+
+    this.authS.loginGoogle(email, password).then(res =>{
+      console.log("Logeado con Google: ",res)
+    })
+  }
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -24,6 +49,15 @@ export class LoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  close($event:boolean){
+    this.loginDisplay=!$event
+    this.newBooleanEvent.emit(!$event);
+    
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
   ngOnInit(): void {
   }
 

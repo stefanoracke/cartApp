@@ -9,14 +9,15 @@ import { CatalogueComponent } from './views/catalogue/catalogue.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from 'src/app/core/utils/material/material.module';
-
+import { FilterNamePipe } from 'src/app/core/utils/pipes/filter-name.pipe';
+import { LoginModule } from './views/login/login.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    LoginComponent,
+    HomeComponent,    
     RegisterComponent,
-    CatalogueComponent
+    CatalogueComponent,
+    FilterNamePipe,
   ],
   imports: [
     CommonModule,
@@ -25,8 +26,10 @@ import { MaterialModule } from 'src/app/core/utils/material/material.module';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    LoginModule
   ],
   exports: [
+    LoginComponent,
   ]
 })
 export class PublicModule { }

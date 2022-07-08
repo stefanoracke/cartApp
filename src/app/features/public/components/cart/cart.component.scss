@@ -6,16 +6,141 @@
     background-color: rgba(0, 0, 0, 0.726);
     min-height: 100vh;
     position: fixed;
-    display: none;
+    color: var(--mainWhite);
 }
 
 .sidebar {
     height: 100%;
-    width: 35%;
+    width: 450px;
     position: absolute;
     right: 0;
     top: 0;
     padding-top: 40px;
-    background: linear-gradient(180deg, rgb(71 85 105) ,rgb(56, 56, 56), );
+    padding: 20px;
+    background: linear-gradient(180deg, var(--blue) ,var(--secondaryBlue), );
     border-left: 1px solid rgb(78, 77, 77);
+    animation-name: translatetoX;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+    transform: translateX(450px)
+}
+
+mat-icon{
+    cursor: pointer;
+    transition: 0.6s ease all;
+}
+
+mat-icon:hover{
+    color: grey;
+}
+
+.title{
+    text-align: center;
+}
+
+.quantity{
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.items{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+tr{
+    border-bottom: 1px solid var(--mainWhite);
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.delete-icon{
+    margin-left: 25px;
+
+}
+
+.total{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.total-value{
+    text-align: center;
+}
+
+button{
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px 0 var(--mainWhite);
+    padding: 10px;
+    transition: 0.6s ease;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.btn-clear-cart:hover{
+    transform: scale(0.7);
+}
+
+.btn-buy{
+    background: rgb(190, 190, 75);
+    color: var(--mainWhite)
+}
+
+.btn-buy:hover{
+    transform: scale(1.1);
+}
+
+.btn-clear-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--red);
+    color: var(--mainWhite);
+    transform: scale(0.8);
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+}
+
+.transparent_cart{
+    position: absolute;
+    cursor: default;
+    bottom: 190px;
+    font-size: 9rem;
+    right: 420px;
+    color: rgba(255, 255, 255, 0.39);
+}
+
+.transparent_cart:hover{
+    color: rgba(255, 255, 255, 0.39);
+}
+
+@keyframes translatetoX{
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+.closeCart{
+    width: 20px;
+    padding-left: 10px;
+    cursor:pointer;
+    position:absolute;
+    transition: 0.6s ease;
+}
+
+.closeCart:hover{
+    transform: rotateX(180deg);
 }

@@ -15,7 +15,11 @@
 
 .items-container{
     margin-top: 15px;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
     display: flex;
+    flex-direction: row ;
     justify-content: center;
     align-items: center;
 }
@@ -26,4 +30,73 @@
     min-height: 350px;
     box-shadow: 1px 2px 2px 2px grey;
     border-radius: 20px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.item-values h2{
+    text-align: center;
+}
+
+.item-values h3{
+    color: var(--red);
+    text-align: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    margin-right: 10px;
+    font-weight: 600;
+    transition: 0.6s ease all;
+    
+    font-family: var(--fontFamilyP);
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.btn-container button:hover{
+    transform: scale(0.9);
+}
+
+.btn-container img{
+    margin-right:5px;
+}
+
+.glass{
+    width: 120px;
+}
+
+.img-container{
+    justify-content: center;
+    align-items: center;
+}
+
+.addToCart{
+    background: var(--red);
+    cursor: pointer;
+}
+
+.infoBtn{
+    background: var(--secondaryBlue);
+    cursor: pointer;
+}
+
+.disabled{
+    background: rgb(199, 86, 86);
+    cursor: not-allowed!important;
+}
+
+.disabled:hover{
+    transform: scale(1)!important;
 }

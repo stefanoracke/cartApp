@@ -1,1 +1,36 @@
-<p>register works!</p>
+<div class="cortina" >
+    <button class="goBack" (click)="redirectTo()">Go Back</button>
+    <div class="container">
+        <div class="circle-container">
+            <div class="form-container">
+                <h1>Register</h1>
+                
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your email</mat-label>
+                      
+                      <input [(ngModel)]="usuario.email" matInput placeholder="pat@example.com" [formControl]="email" required>
+                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                    
+                </div>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input [(ngModel)]="usuario.password" matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        
+                      </mat-form-field>
+                      
+                </div>
+                
+
+                <button (click)="registrar()" class="sign-in">Register</button>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>

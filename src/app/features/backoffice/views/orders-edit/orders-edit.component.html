@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="body">
+
+        <form (ngSubmit)="onSave()" [formGroup]="productForm">
+            <h1>{{title}}</h1>
+            
+            <h3>Order ID: {{order.id}}</h3>
+            <h3>Total Price of Order: {{order.total_price| currency : 'USD'}}</h3>
+            <h2>Products</h2>
+            <div class="product-container">
+                <table>
+                    <tbody>
+                        <tr *ngFor="let item of order.cart_products">
+                            <td>
+                                <h3>Product Name: {{item.prod_name}}</h3>
+                            </td>
+                            <td>
+                                <h3>Product ID: {{item.prod_id}}</h3>
+                            </td>
+                            <td>
+                                <h3>Quantity: {{item.quantity}}</h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div>
+                Status
+                <div class="selector-item"><input type="radio" name="seleccion" id="" value="all" (click)="statusSelector('pending')"> <div class="item"><p>Pending</p></div></div>
+                <div class="selector-item"><input type="radio" name="seleccion" id="" value="Secular" (click)="statusSelector('completed')"><div class="item"><p>Completed</p></div></div>
+            </div>
+
+
+            <div class="btn-container">
+                <button class="btn-submit" type="submit">Submit</button>
+
+                <button class="btn-back" (click)="goBack()">Go Back</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

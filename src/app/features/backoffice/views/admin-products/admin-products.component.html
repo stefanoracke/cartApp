@@ -1,1 +1,38 @@
-<p>admin-products works!</p>
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="body">
+        <div class="product-container">
+            <h1>Product Administration</h1>
+            <div class="newproduct">
+              <button (click)="navigateToNew()" class="btn-new"><img src="../../../../../assets/svgs/add.svg"  alt="">New Product</button>
+            </div>
+            <table>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let item of products$ | async; let i = index">
+                    <th scope="row">{{i}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price|currency: 'USD'}}</td>
+                    <td>
+                        <div class="btn-container">
+                            <button class="btn btn-edit" (click)="onGoToEdit(item)"> <img src="../../../../../assets/svgs/edit.svg" alt=""> Edit</button>
+                            <button class="btn btn-delete" (click)="onGoToDelete(item.id)"> <img src="../../../../../assets/svgs/thrash.svg" alt=""> Delete</button>
+                        </div>
+                   </td>
+                  </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>

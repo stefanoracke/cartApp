@@ -1,5 +1,40 @@
-<div class="cortina">
+<div class="cortina" *ngIf="display else nothing">
     <div class="sidebar">
-        hola
+        <img class="closeCart" (click)="close(display,order)" src="../../../../../assets/svgs/exit.svg">
+        <div class="items-container">
+            <h1 class="title">My cart</h1>
+            <div class="items" >
+                <table *ngIf="order!=undefined; else nothing">
+                    <tbody>
+                        <tr  *ngFor="let product of order.cart_products">
+                            <th><h3>{{product.prod_name}}</h3></th>
+                            <th><div class="quantity"><mat-icon (click)="addQuantity(product)">keyboard_arrow_up</mat-icon><h4>{{product.quantity}}</h4><mat-icon (click)="substQuantity(product)">keyboard_arrow_down</mat-icon></div></th>
+                            <th><h2>{{product.price | currency : 'USD'}}</h2></th>
+                            <th><mat-icon (click)="deleteCartElement(product)" class="delete-icon">delete</mat-icon></th>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <ng-template #nothing></ng-template>
+                
+                
+            </div>
+            
+            <div class="total" *ngIf="order!=undefined; else empty">
+                <h2 class="total-value" >Total: {{order.total_price | currency : 'USD'}}</h2>
+                <button class="btn-buy"  (click)="buy()">Buy now</button>
+                <button class="btn-clear-cart" (click)="clearCart()">Clear Cart <mat-icon>delete_forever</mat-icon></button>
+                <mat-icon class="transparent_cart">shopping_cart</mat-icon>
+            </div>
+            <ng-template #empty>
+                <div class="total">
+                    <h2 class="total-value">Cart Empty</h2>
+                </div>
+            </ng-template>
+        </div>
     </div>
 </div>
+
+<ng-template #nothing>
+    
+</ng-template>

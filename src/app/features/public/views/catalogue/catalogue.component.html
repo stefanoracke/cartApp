@@ -7,9 +7,9 @@
             <p>
                 <mat-form-field appearance="legacy">
                   <mat-label>Search</mat-label>
-                  <input matInput placeholder="Search by product">
+                  <input name="filterByName" [(ngModel)]="filterByName" matInput placeholder="Search by product">
                   <mat-icon matSuffix>search</mat-icon>
-                  <mat-hint>Hint</mat-hint>
+                  <mat-hint>Product name</mat-hint>
                 </mat-form-field>
               </p>
 
@@ -17,9 +17,20 @@
         <hr class="search-line">
     </div>
     <div class="items-container">
-        <div class="items">
-            hola
-            <div class="img-container"></div>
+        <div class="items" *ngFor="let item of products$ | async | filterName: filterByName">
+            
+            <div class="img-container">
+                <img class="glass" alt="imagen de Ejemplo" src="../../../../../assets/vaso.jpg">
+            </div>
+            <div class="item-values">
+                <h2>{{item.name}}</h2>
+                <h3>{{item.price | currency : 'USD'}}</h3>
+            </div>
+            <div class="btn-container">
+                <button *ngIf="inCart(item);else disabled" class="addToCart" (click)="addToCart(item,newOrder)"><img src="../../../../../assets/svgs/addToCart.svg">Add to cart</button>
+                <ng-template #disabled><button  class="disabled"><img src="../../../../../assets/svgs/addToCart.svg">In cart</button></ng-template>
+                <button class="infoBtn"><img src="../../../../../assets/svgs/info.svg">Info</button>
+            </div>
         </div>
     </div>
 </div>

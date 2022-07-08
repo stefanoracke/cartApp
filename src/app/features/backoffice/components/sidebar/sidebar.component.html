@@ -1,1 +1,15 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+    <div class="links-container">
+        <div class="navigation">
+            
+            <ul>
+                <li *ngFor = "let item of navigatorList">
+                    <a [href]=item.url>
+                        <span class="icon"><img [src]=item.icon alt=""></span>
+                        <span class="title">{{item.title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,9 @@ export class AdminHomeComponent implements OnInit {
 
   constructor() { }
 
+  money = 10000
+  products = 60
+
   ngOnInit(): void {
   }
 

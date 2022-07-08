@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="body">
+        <div class="container">
+            <div class="sidebar">
+                <app-sidebar></app-sidebar>
+            </div>
+            <div class="body">
+                <div class="product-container">
+                    <h1>Orders Administration</h1>
+                    
+                    <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor = "let item of orders$ | async; let i = index">
+                            <th scope="row">{{i}}</th>
+                            <td>{{item.id}}</td>
+                            <td *ngIf="item.status == 'pending', else completed" ><p class="pending">{{item.status}}</p></td>
+                            <ng-template #completed><td><p class="completed">{{item.status}}</p></td></ng-template>
+                            <td>
+                                <div class="btn-container">
+                                    <button class="btn btn-edit" (click)="onGoToEdit(item)"> <img src="../../../../../assets/svgs/edit.svg" alt=""> Edit</button>
+                                    <button class="btn btn-delete" (click)="onGoToDelete(item.id)"> <img src="../../../../../assets/svgs/thrash.svg" alt=""> Delete</button>
+                                </div>
+                           </td>
+                          </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
