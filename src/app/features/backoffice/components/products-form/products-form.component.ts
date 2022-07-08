@@ -38,7 +38,7 @@ export class ProductsFormComponent implements OnInit {
   }
 
   onSave(){
-    console.log(this.productForm.valid)
+    
     if (this.productForm.valid){
       const product = this.productForm.value;
       const productId = this.product?.id || null;

@@ -54,7 +54,7 @@ export class CartService {
 
       newOrder.cart_products.push(add);
     }
-    console.log('en add pedido ->', newOrder)
+    
     return newOrder
   }
 
@@ -94,14 +94,14 @@ export class CartService {
     let realTotal = total.toString()
     this.order.total_price = realTotal
     this.saveCart(this.order)
-    console.log(this.order)
+    
     return this.order
   }
 
   inCart(product:ProductI):boolean{
     this.order = this.getCart()
     let item = this.order?.cart_products.find((item) => (item.prod_id === product.id))
-    console.log(item==undefined)
+    
     return item==undefined
   }
 
@@ -114,7 +114,7 @@ export class CartService {
       if(item.quantity>1){
         item.quantity--;
       }else{
-        console.log(item.quantity)
+        
         this.order = this.deleteElementCart(product)
         return this.order;
       }
@@ -125,7 +125,7 @@ export class CartService {
     total -= price;
     let realTotal = total.toString()
     this.order.total_price = realTotal
-    console.log(this.order)
+    
     this.saveCart(this.order)
     return this.order
   }
@@ -133,8 +133,8 @@ export class CartService {
   deleteElementCart(product:CartProductI){
     this.getCart();
     let newProducts = this.order.cart_products.filter(item=> item.prod_id != product.prod_id)
-    console.log(product)
-    console.log(newProducts)
+    
+    
     let priceNum = parseInt(product.price)
     let quantity = product.quantity
     let beforeTotal = parseInt(this.order.total_price)
@@ -149,7 +149,7 @@ export class CartService {
 
     this.saveCart(this.orderonDelete)
 
-    console.log(this.orderonDelete)
+    
 
     return this.orderonDelete
   }
