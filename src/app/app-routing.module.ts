@@ -10,6 +10,11 @@ const routes: Routes = [
       import("./features/public/public.module").then((m) => m.PublicModule),
   },
   {
+    path: "admin",
+    loadChildren: () =>
+    import("./features/backoffice/backoffice.module").then((m) => m.BackofficeModule)
+  },
+  {
     path: "**",
     redirectTo: "",
     pathMatch: "full",

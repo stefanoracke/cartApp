@@ -1,1 +1,67 @@
-<p>admin-home works!</p>
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="body">
+        <div class="dashboard-container">
+            <div class="info-container">
+                <div class="item">
+                  <h3>Earns</h3>
+                  <mat-icon>local_atm</mat-icon>
+                  <h2 class="data">{{money|currency: 'USD'}}</h2>
+                </div>
+                <div class="item">
+                  <h3>Products on Order</h3>
+                  <mat-icon>inventory</mat-icon>
+                  <h2 class="data">{{products}}</h2>
+                </div>
+            </div>
+            <div class="table-container">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <h3>Orders</h3>
+                          <tr>
+                            <th>#</th>                            
+                            <th scope="col">Products name</th>
+                            <th scope="col">Status</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <th scope="row">1   </th>
+                            <td>Vaso de agua 3</td>
+                            <td class="status_completed">Entregado</td>
+                            <ng-template #pending></ng-template>
+                          </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <h3>Last clients</h3>
+                          <tr>
+                            <th>#</th>                             
+                            <th scope="col">Client name</th>
+                            <th scope="col">Client email</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <th scope="row">i   </th>
+                            <td>Jason Doe</td>
+                            <td>jasondoe@gmail.com</td>
+                            
+                          </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

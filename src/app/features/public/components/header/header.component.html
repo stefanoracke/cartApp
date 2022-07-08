@@ -1,14 +1,21 @@
 <div class="navbar">
     <h1>Cart App</h1>
     <div class="buttons">
-        <a href="">Log in</a>
+        <button *ngIf=logged (click)="redirectToDashboard()" class="btns admin">Admin Dashboard</button>
+        <button *ngIf=logged (click)="abrirLogin()" class="btns">Log in</button>
+        <button *ngIf=logged (click)="logOut()" class="btns">Log out</button>
+        
     </div>
     <div class="cart-container">
-    <img src="./../../../../../assets/svgs/cart.svg" alt="" class="cart">
+    <img (click)="abrirCart()" src="./../../../../../assets/svgs/cart.svg" alt="" class="cart">
     <div class="number-container">
-        <p class="number-cart">0</p>
+        <p class="number-cart">{{numberCart}}</p>
     </div>
     </div>
     
 </div>
-<app-cart></app-cart>
+<div class="center">
+    <app-login [loginDisplay] = loginDisplay (newBooleanEvent)="changeValueLogin($event)"></app-login>
+</div>
+
+<app-cart [display] = display (newBooleanEvent)="changeValue($event,order)" (newCartEvent)="changeCartValue(order)"[order]=order></app-cart>

@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100&family=Dancing+Script&family=EB+Garamond&family=Splash&display=swap');
+
+
 .body{
     background: linear-gradient(180deg, var(--blue) ,var(--secondaryBlue), );
     min-height: 100vh;
@@ -18,6 +22,57 @@
     font-size: 5rem;
     font-weight: 800;
     text-shadow: 3px 3px 3px rgb(126, 122, 122);
+}
+
+.center h1{
+    display: inline;
+    color: var(--mainWhite);
+}
+
+#welcome{
+    position: absolute;
+    font-family: 'Dancing Script', cursive;
+    
+    font-size:6rem;
+    color: var(--lightBlue);
+    transform: translate(-700px,-20px);
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    letter-spacing: 1px;
+    animation-name: showing-title;
+}
+
+@keyframes showing-title {
+    75%{
+        opacity: 1;
+        transform: translate(-320px,-20px);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-320px,-20px);
+    }
+}
+
+#coa{
+    font-size: 10rem;
+    font-family: 'EB Garamond', serif;
+    transform: translate(-700px,-20px);
+    animation-fill-mode: forwards;
+    opacity: 1;
+    animation-duration: 3s;
+    animation-delay: 2.5s;
+    animation-timing-function: ease-in;
+    letter-spacing: 1px;
+    animation-name: showing-title2;
+}
+
+@keyframes showing-title2 {
+    100%{
+        
+        opacity: 1;
+    }
 }
 
 .catalogue{

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="body">
+        
+        <form (ngSubmit)="onSave()" [formGroup]="productForm">
+            <h1>{{title}}</h1>
+            <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Product Name</mat-label>
+                  <input formControlName="name" matInput placeholder="Placeholder">
+                  <mat-icon matSuffix><span class="material-icons">
+                    keyboard_alt
+                    </span></mat-icon>
+                  <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Price</mat-label>
+                  <input formControlName="price" matInput placeholder="$00.00">
+                  <mat-icon matSuffix><span class="material-icons">
+                    attach_money
+                    </span></mat-icon>
+                  <mat-hint>Not necessary dollar sign</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Description</mat-label>
+                    <textarea formControlName="description" matInput></textarea>
+                  </mat-form-field>
+            </p>
+            <div class="btn-container">
+                <button class="btn-submit" type="submit">Submit</button>
+
+                <button class="btn-back" (click)="goBack()" >Go Back</button>
+            </div>
+            
+        </form>
+        
+    </div>
+</div>
