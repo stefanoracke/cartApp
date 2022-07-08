@@ -1,4 +1,5 @@
-<div class="header">
+<div class="white"></div>
+<div class="navbar">
     <app-header></app-header>
 </div>
 <div class="body">
@@ -8,13 +9,13 @@
                 <mat-form-field appearance="legacy">
                   <mat-label>Search</mat-label>
                   <input name="filterByName" [(ngModel)]="filterByName" matInput placeholder="Search by product">
-                  <mat-icon matSuffix>search</mat-icon>
-                  <mat-hint>Product name</mat-hint>
+                  <mat-icon class="icon-search" matSuffix>search</mat-icon>
+                  
                 </mat-form-field>
               </p>
 
         </div>
-        <hr class="search-line">
+        
     </div>
     <div class="items-container">
         <div class="items" *ngFor="let item of products$ | async | filterName: filterByName">
