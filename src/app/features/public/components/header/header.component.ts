@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
 import { OrderI } from 'src/app/core/models/order.interface';
-import { LoginI } from 'src/app/core/models/login.interface';
+import { AngularFireAuth  } from '@angular/fire/auth';
+
+
 
 @Component({
   selector: 'app-header',
@@ -11,25 +13,26 @@ import { LoginI } from 'src/app/core/models/login.interface';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnChanges, OnInit {
-  
+  event: any;
   cart!: OrderI;
   logged!: boolean
   public numberCart = 0;
   order!: OrderI;
   display = false;
   loginDisplay = false
-  constructor(private router:Router, private authS:AuthService, private cartSvc:CartService) { 
+   constructor(private router:Router, private authS:AuthService, private cartSvc:CartService, public auth:AngularFireAuth) { 
     
     this.order = this.cartSvc.getCart()
     this.order = this.getCart()
     this.cart = this.getCart()
     this.numberCart = this.cartSvc.changeNumberCart(this.order)
+    
   }
 
-  ngOnInit(): void {
-    this.logged = this.isLogged()
-    console.log(this.logged)
+   async ngOnInit(): Promise<void> {
+    await this.isLogged();
     
+    return this.isLogged()
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -43,12 +46,14 @@ export class HeaderComponent implements OnChanges, OnInit {
     changes.logged
   }
 
-   isLogged(){
-    
-    return true;
-  }
+   
 
-  
+  async isLogged(){
+    
+    await this.auth.user.subscribe(event => this.event = event?.email) ;
+    const isAuthenticated = this.event ? true : false;
+    console.log(isAuthenticated)
+  }
 
   logOut(){
     this.authS.logout();
@@ -58,6 +63,7 @@ export class HeaderComponent implements OnChanges, OnInit {
     this.loginDisplay = !this.loginDisplay;
     this.cart = this.getCart()
     this.order = this.getCart()
+    console.log(this.isLogged())
   }
 
   changeNumber($event:number){
@@ -68,7 +74,7 @@ export class HeaderComponent implements OnChanges, OnInit {
     this.display = !this.display;
     this.order = this.getCart();
     this.numberCart = this.cartSvc.changeNumberCart(this.order)
-    
+    this.isLogged()
   }
 
   getCart():OrderI{

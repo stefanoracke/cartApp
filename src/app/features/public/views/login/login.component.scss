@@ -9,6 +9,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    opacity:1;
 }
 
 .exit-btn{
@@ -93,6 +94,7 @@
     transform: translate(460px,200px);
     display: flex;
     flex-direction: column;
+    z-index: 9999999;
 }
 
 .form-container h1{

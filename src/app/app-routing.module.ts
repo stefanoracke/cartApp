@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './features/public/views/home/home.component';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AdminGuard } from './core/utils/guards/admin.guard';
+import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
 const routes: Routes = [
   
@@ -12,7 +16,9 @@ const routes: Routes = [
   {
     path: "admin",
     loadChildren: () =>
-    import("./features/backoffice/backoffice.module").then((m) => m.BackofficeModule)
+    import("./features/backoffice/backoffice.module").then((m) => m.BackofficeModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   {
     path: "**",

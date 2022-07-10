@@ -25,6 +25,7 @@
     right: 0;
     display: flex;
     justify-content: center;
+    z-index: 0 !important;
     align-items: center;
 }
 
@@ -34,6 +35,7 @@
     font-size: 5rem;
     font-weight: 800;
     text-shadow: 3px 3px 3px rgb(126, 122, 122);
+    z-index: 0;
 }
 
 .center h1{
@@ -51,8 +53,8 @@
     transform: translate(-700px,-420px);
     animation-fill-mode: forwards;
     opacity: 0;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
+    animation-duration: 1.8s;
+    animation-timing-function: ease-out;
     letter-spacing: 1px;
     animation-name: showing-title;
 }
@@ -66,7 +68,7 @@
         transform: translate(-320px,-140px);
     }
     100%{
-        opacity: 1;
+        opacity: 0;
         transform: translate(-280px,-120px);
     }
 }
@@ -78,10 +80,10 @@
     animation-fill-mode: forwards;
     opacity: 1;
     animation-duration: 3s;
-    animation-delay: 2.5s;
+    animation-delay: 0.5s;
     animation-timing-function: ease-in;
     letter-spacing: 1px;
-    animation-name: showing-title2;
+    
 }
 
 @keyframes showing-title2 {
