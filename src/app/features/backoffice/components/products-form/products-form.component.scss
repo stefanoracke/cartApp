@@ -38,11 +38,12 @@ textarea{
     margin-bottom: 10px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 2px 2px 1px grey;
+    box-shadow: 0 0 20px -2px grey;
     font-weight: 800;
     font-size: 1rem;
     font-family: 'Arima', cursive;
     transition: 0.6s ease all;
+    
 }
 
 .btn-container button:hover{
@@ -51,4 +52,52 @@ textarea{
 
 .btn-submit{
     background: var(--lightBlue)
+}
+
+.btn-container img{
+    width:150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#fileSelector{
+    display: none;
+}
+
+.labelFileSelector{
+    padding: 10px;
+    background: var(--mainWhite);
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 20px -2px var(--secondaryBlue);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    width: 130px;
+    transition: 0.6s ease;
+    margin-bottom: 15px;
+    user-select: none;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: 'Arima', cursive;
+}
+
+.labelFileSelector:hover{
+    background: rgb(236, 236, 236);
+}
+
+.labelFileSelector:active{
+    transform: scale(0.9);
+}
+
+.labelFileSelector mat-icon{
+    padding-left: 5px;
+    
+}
+
+.btn-submit-disabled{
+    cursor: not-allowed;
 }

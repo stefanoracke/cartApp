@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from 'src/app/core/utils/material/material.module';
 import { ProductsFormComponent } from './components/products-form/products-form.component';
 import { OrdersEditComponent } from './views/orders-edit/orders-edit.component';
+import { IdfilterPipe } from 'src/app/core/utils/pipes/idfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,15 @@ import { OrdersEditComponent } from './views/orders-edit/orders-edit.component';
     OrdersComponent,
     ProductsFormComponent,
     OrdersEditComponent,
-    
+    IdfilterPipe
   ],
   imports: [
     CommonModule,
     BackofficeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    
   ]
 })
 export class BackofficeModule { }

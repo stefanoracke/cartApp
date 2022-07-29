@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnChanges {
     const {email, password} = this.usuario;
 
     this.authS.login(email, password).then(res =>{
-      
+      this.close(this.loginDisplay)
     })
   }
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit, OnChanges {
     const {email, password} = this.usuario;
 
     this.authS.loginGoogle(email, password).then(res =>{
-      
+      this.close(this.loginDisplay)
     })
   }
 

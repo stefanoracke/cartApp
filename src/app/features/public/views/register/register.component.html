@@ -9,15 +9,32 @@
                     <mat-form-field appearance="fill">
                       <mat-label>Enter your email</mat-label>
                       
-                      <input [(ngModel)]="usuario.email" matInput placeholder="pat@example.com" [formControl]="email" required>
+                      <input [(ngModel)]="usuario.email" autocomplete="off" matInput placeholder="pat@example.com" [formControl]="email" required>
                       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
                     
                 </div>
                 <div class="example-container">
                     <mat-form-field appearance="fill">
+                      <mat-label>Enter your name</mat-label>
+                      
+                      <input matInput placeholder="John" autocomplete="off"  required>
+                      
+                    </mat-form-field>
+                    
+                </div>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your Last Name</mat-label>
+                        
+                        <input matInput placeholder="Smith" autocomplete="off"  required>
+                        
+                      </mat-form-field>
+                </div>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
                         <mat-label>Enter your password</mat-label>
-                        <input [(ngModel)]="usuario.password" matInput [type]="hide ? 'password' : 'text'">
+                        <input [(ngModel)]="usuario.password" autocomplete="off" matInput [type]="hide ? 'password' : 'text'">
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                           <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>

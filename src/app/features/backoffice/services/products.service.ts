@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ProductI } from 'src/app/core/models/product.interface';
-import { map } from 'rxjs/operators'
-import Swal from 'sweetalert2'
+import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+import { AngularFireStorage } from '@angular/fire/storage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,9 @@ export class ProductsService {
   products?: Observable<ProductI[]>;
 
   private productsCollection: AngularFirestoreCollection<ProductI>;
+  
 
-
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(private readonly afs: AngularFirestore, private storage:AngularFireStorage) {
     this.productsCollection = afs.collection<ProductI>('products');
     this.getProducts();
    }
@@ -73,4 +75,18 @@ export class ProductsService {
       map(actions => actions.map(a => a.payload.doc.data() as ProductI))
     )
    }
+
+   async uploadImage(nombre: string, imgBase64: any){
+    try{
+      let ref = await this.storage.ref(nombre);
+      const res = ref.putString(imgBase64, 'data_url');
+      return (await res).ref.getDownloadURL();
+
+    }
+    catch(err){
+      console.log(err);
+      return null
+    }
+   }
+   
 }

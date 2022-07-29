@@ -1,6 +1,6 @@
 <div class="white"></div>
 <div class="navbar">
-    <app-header></app-header>
+    <app-header [numberCart]="numberForCart"></app-header>
 </div>
 <div class="body">
     <div class="search">
@@ -17,11 +17,16 @@
         </div>
         
     </div>
+    <div *ngIf="products$|async else loading" class="loading">        
+    </div>
+    <ng-template #loading ><div class="something"><div class="loading">Loading...</div> </div></ng-template>
     <div class="items-container">
+        
         <div class="items" *ngFor="let item of products$ | async | filterName: filterByName">
             
             <div class="img-container">
-                <img class="glass" alt="imagen de Ejemplo" src="../../../../../assets/vaso.jpg">
+                <img *ngIf="item.image ;else ejemplo"class="glass" src="{{item.image}}">
+                <ng-template #ejemplo><img  class="glass" alt="imagen de Ejemplo" src="../../../../../assets/vaso.jpg"></ng-template>
             </div>
             <div class="item-values">
                 <h2>{{item.name}}</h2>

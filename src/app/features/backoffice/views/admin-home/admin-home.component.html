@@ -3,65 +3,67 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="body">
+        
         <div class="dashboard-container">
+          <div class="date">{{todayString | date :'fullDate'}}</div>
+          <div class="welcome">
+            <div class="welcome-title">
+              <h1 *ngIf="auth.user |async as user; else secondWelcome" >Welcome back, {{user.displayName}}!</h1>
+              <ng-template #secondWelcome><h1>Welcome back!</h1></ng-template>
+              <p>Ready to start your day with some sales?</p>
+            </div>
+            <div class="img-container"><img src="./../../../../../assets/mujercompu.png"></div>
+          </div>
             <div class="info-container">
-                <div class="item">
-                  <h3>Earns</h3>
+                <div class="item" id="earns">
+                  <div class="text">
+                    <h2 class="data">{{money|currency: 'USD'}}</h2>
+                    <h3>Earns</h3>
+                  </div>
+                  
                   <mat-icon>local_atm</mat-icon>
-                  <h2 class="data">{{money|currency: 'USD'}}</h2>
+                  
                 </div>
-                <div class="item">
-                  <h3>Products on Order</h3>
-                  <mat-icon>inventory</mat-icon>
-                  <h2 class="data">{{products}}</h2>
+                <div class="item" id="sales">
+                  <div class="text">
+                    <h2 class="data">{{products}}</h2>
+                    <h3>Sales</h3>
+                  </div>
+                  
+                  <mat-icon>shopping_cart</mat-icon>
+                  
                 </div>
             </div>
             <div class="table-container">
                 <div class="table">
                     <table>
                         <thead>
-                            <h3>Orders</h3>
+                            
                           <tr>
                             <th>#</th>                            
-                            <th scope="col">Products name</th>
+                            <th scope="col">Orders ID</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Status</th>
                             
                           </tr>
                         </thead>
                         <tbody>
-                          <tr >
-                            <th scope="row">1   </th>
-                            <td>Vaso de agua 3</td>
-                            <td class="status_completed">Entregado</td>
+                          <tr *ngFor = "let item of orders$ | async; let i = index">
+                            <th scope="row">{{i+1}}  </th>
+                            <td>{{item.id }}</td>
+                            <td>{{item.total_price | currency : 'USD' }}</td>
+                            <td *ngIf="item.status == 'pending', else completed" ><div class="status-container"><div class="pending">{{item.status}}</div></div></td>
+                            <ng-template #completed><td><div class="status-container"><div class="completed">{{item.status}}</div></div></td></ng-template>
                             <ng-template #pending></ng-template>
                           </tr>
                           
                         </tbody>
                     </table>
+                    
                 </div>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <h3>Last clients</h3>
-                          <tr>
-                            <th>#</th>                             
-                            <th scope="col">Client name</th>
-                            <th scope="col">Client email</th>
-                            
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr >
-                            <th scope="row">i   </th>
-                            <td>Jason Doe</td>
-                            <td>jasondoe@gmail.com</td>
-                            
-                          </tr>
-                          
-                        </tbody>
-                    </table>
-                </div>
+                
             </div>
         </div>
     </div>
+    
 </div>

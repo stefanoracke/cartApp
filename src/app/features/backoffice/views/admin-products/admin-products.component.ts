@@ -41,7 +41,7 @@ export class AdminProductsComponent implements OnInit {
   async onGoToDelete(id:any){
     try{
       await this.productSvc.onDeleteProducts(id);
-      alert('Deleted');
+      
     } catch(err){
       alert(err)
     }

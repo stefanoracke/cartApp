@@ -16,7 +16,7 @@ export class CartComponent implements OnInit, OnChanges {
 
   
   totalPrice= 0;
-  
+  @Output() newCartNumberEvent = new EventEmitter<number>();
   @Input() display: boolean = false;
   @Output() newBooleanEvent = new EventEmitter<boolean>();
   @Input() order!:OrderI;
@@ -40,6 +40,8 @@ export class CartComponent implements OnInit, OnChanges {
 close($event:boolean,cart:OrderI){
   this.display=!$event
   cart = this.getCart()
+  let number = this.cartSvc.changeNumberCart(cart)
+  this.newCartNumberEvent.emit(number)
   this.newCartEvent.emit(this.order);
   this.newBooleanEvent.emit(!$event);
   

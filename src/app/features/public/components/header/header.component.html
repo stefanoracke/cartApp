@@ -1,10 +1,12 @@
 <div class="navbar">
     <h1 class="cartApp">Cart App</h1>
     <div class="buttons">
-        <button *ngIf=logged (click)="redirectToDashboard()" class="btns admin">Admin Dashboard</button>
-        <button *ngIf=logged (click)="abrirLogin()" class="btns">Log in</button>
-        <button *ngIf=logged (click)="logOut()" class="btns">Log out</button>
+        <button *ngIf="auth.user |async as user; else login" (click)="redirectToDashboard()" class="btns admin">Admin Dashboard</button>
         
+        <button *ngIf="auth.user |async as user" (click)="logOut()" class="btns">Log out {{user.email}}</button>
+        <ng-template #login>
+            <button (click)="abrirLogin()" class="btns">Log in</button>
+        </ng-template>
     </div>
     <div class="cart-container">
     <img (click)="abrirCart()" src="./../../../../../assets/svgs/cart.svg" alt="" class="cart">
@@ -18,4 +20,4 @@
     <app-login [loginDisplay] = loginDisplay (newBooleanEvent)="changeValueLogin($event)"></app-login>
 </div>
 
-<app-cart [display] = display (newBooleanEvent)="changeValue($event,order)" (newCartEvent)="changeCartValue(order)"[order]=order></app-cart>
+<app-cart [display] = display (newBooleanEvent)="changeValue($event,order)" (newCartEvent)="changeCartValue(order)"[order]=order (newCartNumberEvent)="changeNumberValue($event)"></app-cart>

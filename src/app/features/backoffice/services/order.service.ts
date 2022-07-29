@@ -58,4 +58,13 @@ export class OrderService {
       map(actions => actions.map(a => a.payload.doc.data() as OrderI))
     )
    }
+
+   getPriceOrders(allOrders:OrderI[]|undefined): number{
+    let totalPrice = 0
+    allOrders?.forEach((value)=>{
+      let intValue = parseInt(value.total_price)
+      totalPrice +=intValue
+    })
+    return totalPrice
+   }
 }
