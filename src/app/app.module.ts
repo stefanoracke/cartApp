@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
     AppComponent,
     
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,10 +35,10 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
-    FormlyMaterialModule
-    
+    FormlyMaterialModule,
+    AngularFireStorageModule    
   ],
-  providers: [AngularFirestore ],
+  providers: [AngularFirestore,{ provide: BUCKET, useValue: environment.firebaseConfig.storageBucket } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

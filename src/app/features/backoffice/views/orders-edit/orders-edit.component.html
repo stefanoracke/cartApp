@@ -30,8 +30,9 @@
 
             </div>
             <div>
-                Status
-                <div class="selector-item"><input type="radio" name="seleccion" id="" value="all" (click)="statusSelector('pending')"> <div class="item"><p>Pending</p></div></div>
+                -- Status --
+                Actual Status : <div  [ngClass]="{'pending': order.status === 'pending', 'completed' : order.status === 'completed' }">{{order.status}}</div> 
+                <div class="selector-item"><input type="radio" name="seleccion" id="" value="all" (click)="statusSelector('pending')"> <div class="item"><p >Pending</p></div></div>
                 <div class="selector-item"><input type="radio" name="seleccion" id="" value="Secular" (click)="statusSelector('completed')"><div class="item"><p>Completed</p></div></div>
             </div>
 

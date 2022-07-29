@@ -17,11 +17,11 @@
 
 .navigation{
     position: fixed;
-    width: 205px;
+    width: 250px;
     height: 100%;
     border-left: 5px solid var(--red);
     transition: 0.5s;
-    
+    overflow-x: hidden;
 }
 
 .navigation ul{
@@ -41,7 +41,7 @@
 }
 
 .navigation ul li:hover{
-    background: var(--mainWhite);
+    background: #fff;
 }
 
 .navigation ul li:nth-child(1){
@@ -56,15 +56,22 @@
     display: flex;
     text-decoration: none;
     color: var(--mainWhite);
-    font-weight: 800;
+    font-weight: 200;
 }
 
 .navigation ul li a:hover{
     color: var(--red);
+    font-weight: 600;
 }
 
 .navigation ul li a .title{
     transform: translateY(20px);
+
+}
+
+.title{
+    letter-spacing: 1px;
+    font-weight: 200;
 }
 
 .navigation ul li a .icon {
@@ -87,10 +94,11 @@
     right: 0;
     top: -50px;
     width: 50px;
+    transform: translateX(-44px);
     height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 35px 35px 0 10px var(--mainWhite);
+    box-shadow: 35px 35px 0 10px #fff;
     pointer-events: none;
 
 }
@@ -100,11 +108,12 @@
     position: absolute;
     right: 0;
     bottom: -50px;
+    transform: translateX(-44px);
     width: 50px;
     height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 35px -35px 0 10px var(--mainWhite);
+    box-shadow: 35px -35px 0 10px #fff;
     pointer-events: none;
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit,OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
@@ -16,7 +16,8 @@ export class HeaderComponent implements OnChanges, OnInit {
   event: any;
   cart!: OrderI;
   logged!: boolean
-  public numberCart = 0;
+  @Input() numberCart = 0;
+  // @Output() numberCartEmmiter = new EventEmitter<number>()
   order!: OrderI;
   display = false;
   loginDisplay = false
@@ -46,7 +47,10 @@ export class HeaderComponent implements OnChanges, OnInit {
     changes.logged
   }
 
-   
+  // changeCartNumber(number:number){
+
+  //   this.numberCartEmmiter.emit(number)
+  // }
 
   async isLogged(){
     
@@ -84,6 +88,11 @@ export class HeaderComponent implements OnChanges, OnInit {
 
   changeCartValue(order:OrderI){
     order = this.getCart()
+  }
+
+  changeNumberValue(number:number){
+    
+    this.numberCart= number
   }
 
   changeValueLogin(boolean:boolean){

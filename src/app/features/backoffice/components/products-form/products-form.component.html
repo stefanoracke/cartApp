@@ -33,9 +33,19 @@
                   </mat-form-field>
             </p>
             <div class="btn-container">
-                <button class="btn-submit" type="submit">Submit</button>
-
-                <button class="btn-back" (click)="goBack()" >Go Back</button>
+              <label for="fileSelector" class="labelFileSelector">Select File <mat-icon>image</mat-icon></label>
+              <img *ngIf="image" src="{{image}}" alt="imagenSubida">
+              <button *ngIf="image; else disabled" class="btn-submit" type="submit">Submit</button>
+              <ng-template #disabled>
+                <button class="btn-submit-disabled" type="submit" disabled>Submit</button>
+              </ng-template>
+              <button class="btn-back" (click)="goBack()" >Go Back</button>
+                
+              
+            </div>
+            
+            <div>
+              <input type="file" accept=".png, .jpg, .jpeg" id="fileSelector" (change)="uploadImage($event)">
             </div>
             
         </form>

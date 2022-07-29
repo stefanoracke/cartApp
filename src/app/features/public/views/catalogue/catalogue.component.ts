@@ -11,7 +11,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class CatalogueComponent implements OnInit {
 
-
+  loading=true;
   display = false;
   currentOrder!:OrderI
   products$ = this.productSvc.products
@@ -23,12 +23,13 @@ export class CatalogueComponent implements OnInit {
     cart_products: [ ],
     total_price: '0'
   }
+  numberForCart = this.cartSvc.changeNumberCart(this.newOrder)
 
   constructor(private productSvc:ProductsService, private cartSvc: CartService) { }
 
   ngOnInit(): void {
     this.newOrder = this.getCart()
-    
+    this.numberForCart = this.cartSvc.changeNumberCart(this.newOrder)
   }
 
   saveCart(order:OrderI){
@@ -48,6 +49,7 @@ export class CatalogueComponent implements OnInit {
     this.saveCart(this.cartSvc.addToCart(product,order))
     this.getCart()
     this.currentOrder = this.getCart()
+    this.numberForCart = this.cartSvc.changeNumberCart(this.currentOrder)
   }
 
   inCart(product:ProductI){

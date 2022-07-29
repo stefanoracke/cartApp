@@ -15,7 +15,8 @@ export class ProductsFormComponent implements OnInit {
     price: ['',[Validators.required]],
     description: ['',[Validators.required]]
   });
-
+  image: any;
+  imageURL?: string;
   public title = 'Edition of products'
 
   constructor(private router: Router, private fb: FormBuilder, private productsS: ProductsService) {
@@ -29,20 +30,47 @@ export class ProductsFormComponent implements OnInit {
       this.router.navigate(['admin/products/new'])
       this.title = 'New product'
     }else{
+      this.image = this.product.image
+      this.imageURL = this.product.image
       this.productForm.patchValue(this.product);
     }
+  }
+
+  uploadImage(event:any){
+    
+    let file = event.target.files
+    let reader= new FileReader();
+
+    reader.readAsDataURL(file[0]);
+    reader.onloadend = () =>{
+      console.log(reader.result)
+      this.image = reader.result;
+    }
+
+    console.log(event.target.files);
   }
 
   goBack(){
     this.router.navigate(['admin/products'])
   }
 
-  onSave(){
+  async onSave(){
     
     if (this.productForm.valid){
       const product = this.productForm.value;
+      await this.productsS.uploadImage(product.name,this.image).then(urlImagen=>{
+        this.imageURL = urlImagen;
+      })
+
+      let finalProduct = {
+        description: product.description,
+        name: product.name,
+        price: product.price,
+        image: this.imageURL
+      }
+      console.log(finalProduct)
       const productId = this.product?.id || null;
-      this.productsS.onSaveProducts(product, productId)
+      this.productsS.onSaveProducts(finalProduct, productId)
       
     }
   }  

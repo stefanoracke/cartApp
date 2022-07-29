@@ -4,7 +4,7 @@
 }
 
 .body{
-    background:var(--mainWhite);
+    background:#fff;
     width: 100%;   
     min-height: 106vh;
     display: flex;
@@ -26,7 +26,7 @@
 
 .selector h5{
     font-size:1.1rem;
-    font-weight: 600;
+    font-weight: 200;
     padding-bottom: 20px;
 }
 
@@ -39,7 +39,12 @@
     justify-content: center;
     width: 80px;
     display: inline-block;
-    font-weight: 800;
+    font-weight: 200;
+}
+
+table{
+    background: var(--mainWhite);
+    box-shadow: 0 0 10px -2px grey;
 }
 
 td{
@@ -53,6 +58,37 @@ td{
 .container{
     display: flex;
     flex-direction: row;
+}
+
+.pending{
+    background:var(--red);  
+    padding: 10px;
+    font-weight: 900;
+    font-size:0.7rem;
+    text-align: center !important;
+    margin-block: 0;
+    letter-spacing: 1px;
+    font-weight:bold;
+    color:#fff;
+    border-radius: 5px;
+    width: 80px;
+    box-shadow: 1px 2px 15px -2px grey;
+}
+
+.completed{
+    background: var(--secondaryBlue);    
+    padding: 10px;
+    font-weight: 900;
+    font-weight:bold;
+    color:#fff;
+    font-size:0.7rem;
+    text-align: center !important;
+    margin-block: 0;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    width: 80px;
+    box-shadow: 1px 2px 15px -2px grey;
+    
 }
 
 textarea{

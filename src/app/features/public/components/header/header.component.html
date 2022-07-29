@@ -20,4 +20,4 @@
     <app-login [loginDisplay] = loginDisplay (newBooleanEvent)="changeValueLogin($event)"></app-login>
 </div>
 
-<app-cart [display] = display (newBooleanEvent)="changeValue($event,order)" (newCartEvent)="changeCartValue(order)"[order]=order></app-cart>
+<app-cart [display] = display (newBooleanEvent)="changeValue($event,order)" (newCartEvent)="changeCartValue(order)"[order]=order (newCartNumberEvent)="changeNumberValue($event)"></app-cart>
