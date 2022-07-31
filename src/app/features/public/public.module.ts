@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from 'src/app/core/utils/material/material.module';
 import { FilterNamePipe } from 'src/app/core/utils/pipes/filter-name.pipe';
 import { LoginModule } from './views/login/login.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoginModule } from './views/login/login.module';
     RegisterComponent,
     CatalogueComponent,
     FilterNamePipe,
+
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { LoginModule } from './views/login/login.module';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    LoginModule
+    LoginModule,
+    SharedModule
   ],
   exports: [
     LoginComponent,

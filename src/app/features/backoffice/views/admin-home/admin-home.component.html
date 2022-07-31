@@ -14,6 +14,7 @@
             </div>
             <div class="img-container"><img src="./../../../../../assets/mujercompu.png"></div>
           </div>
+          <div *ngIf="orders$|async; else loading">
             <div class="info-container">
                 <div class="item" id="earns">
                   <div class="text">
@@ -63,6 +64,8 @@
                 </div>
                 
             </div>
+          </div>
+          <ng-template #loading ><div class="something"><div class="loading"><app-loader [display]="1"></app-loader></div> </div></ng-template>
         </div>
     </div>
     

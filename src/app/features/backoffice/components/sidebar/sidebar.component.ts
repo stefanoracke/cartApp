@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
       icon: "../../../../../assets/svgs/product.svg"
     },
     {
-      title: "Orders",
+      title: "Sales",
       url: "/admin/orders",
       icon: "../../../../../assets/svgs/truck.svg"
     },

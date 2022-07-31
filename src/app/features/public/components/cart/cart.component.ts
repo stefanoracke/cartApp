@@ -5,7 +5,7 @@ import { ProductI } from 'src/app/core/models/product.interface';
 import { CartService } from '../../services/cart.service';
 import Swal from 'sweetalert2'
 import { OrderService } from 'src/app/features/backoffice/services/order.service';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-cart',

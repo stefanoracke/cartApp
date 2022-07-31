@@ -1,22 +1,25 @@
-<div class="container">
+<div class="contenedor">
     <div class="sidebar">
         <app-sidebar></app-sidebar>
     </div>
     <div class="body">
-        <div class="container">
+        <div class="otro">
             <div class="sidebar">
                 <app-sidebar></app-sidebar>
             </div>
-            <div class="body">
+            <div class="jaja"  >
+                <div class="title"><h1>Sales Administration</h1><div class="img-container">  <img src="./../../../../../assets/sales.png"></div></div>
                 <div class="product-container">
-                    <h1>Orders Administration</h1>
                     
-                    <table>
+                    
+                    <table *ngIf="orders$|async; else loading">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Order ID</th>
+                            <th scope="col">Sale ID</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Status</th>
+
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
@@ -24,6 +27,7 @@
                           <tr *ngFor = "let item of orders$ | async; let i = index">
                             <th scope="row">{{i}}</th>
                             <td>{{item.id}}</td>
+                            <td>{{item.total_price|currency:'USD'}}</td>
                             <td *ngIf="item.status == 'pending', else completed" ><p class="pending">{{item.status}}</p></td>
                             <ng-template #completed><td><p class="completed">{{item.status}}</p></td></ng-template>
                             <td>
@@ -36,9 +40,17 @@
                           
                         </tbody>
                     </table>
+                    <ng-template #loading class="loading">
+                        <div class="loading"><app-loader></app-loader></div>
+                        
+                    
+                    </ng-template>
                 </div>
                 
             </div>
+            
         </div>
+        
     </div>
+
 </div>
