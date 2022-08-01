@@ -5,7 +5,8 @@
     <div class="body">
         
         <div class="dashboard-container">
-          <div class="date">{{todayString | date :'fullDate'}}</div>
+          <app-date></app-date>
+         
           <div class="welcome">
             <div class="welcome-title">
               <h1 *ngIf="auth.user |async as user; else secondWelcome" >Welcome back, {{user.displayName}}!</h1>

@@ -1,27 +1,36 @@
-<div class="container">
+<div class="otra">
     <div class="sidebar">
         <app-sidebar></app-sidebar>
     </div>
-    <div class="body">
-
-        <form (ngSubmit)="onSave()" [formGroup]="productForm">
-            <h1>{{title}}</h1>
+</div>
+<div class="body">
+    <div class="title-container">
+        <app-title [title]="title"></app-title>
+    </div>
+        <div>
+            <div class="item" id="earns">
+                <div class="text">
+                  <h2 class="data">{{order.total_price|currency: 'USD'}}</h2>
+                  <h3>Total Price of Order</h3>
+                </div>
+                
+                <mat-icon>local_atm</mat-icon>
+                
+              </div>
             
-            <h3>Order ID: {{order.id}}</h3>
-            <h3>Total Price of Order: {{order.total_price| currency : 'USD'}}</h3>
             <h2>Products</h2>
             <div class="product-container">
                 <table>
                     <tbody>
                         <tr *ngFor="let item of order.cart_products">
                             <td>
-                                <h3>Product Name: {{item.prod_name}}</h3>
+                                <p>Product Name: {{item.prod_name}}</p>
                             </td>
                             <td>
-                                <h3>Product ID: {{item.prod_id}}</h3>
+                                <p>Product ID: {{item.prod_id}}</p>
                             </td>
                             <td>
-                                <h3>Quantity: {{item.quantity}}</h3>
+                                <p>Quantity: {{item.quantity}}</p>
                             </td>
                         </tr>
                     </tbody>
@@ -29,21 +38,41 @@
 
 
             </div>
-            <div>
-                -- Status --
-                Actual Status : <div  [ngClass]="{'pending': order.status === 'pending', 'completed' : order.status === 'completed' }">{{order.status}}</div> 
-                <div class="selector-item"><input type="radio" name="seleccion" id="" value="all" (click)="statusSelector('pending')"> <div class="item"><p >Pending</p></div></div>
-                <div class="selector-item"><input type="radio" name="seleccion" id="" value="Secular" (click)="statusSelector('completed')"><div class="item"><p>Completed</p></div></div>
-            </div>
+
+            <form (ngSubmit)="onSave()" [formGroup]="productForm">
+                <hr>
+                <div class="status-container">
+                    
+                    Actual Status : <div
+                        [ngClass]="{'pending': order.status === 'pending', 'completed' : order.status === 'completed' }">
+                        {{order.status}}</div>
+
+                        
+                    
+                    <div class="selector-container">
+                        <div>Change status:</div>   
+                        <div class="selector-item"><input type="radio" name="seleccion" id="pending" value="all"
+                            (click)="statusSelector('pending')">
+                            <label for="pending" class="labelPending">Pending</label>
+                        </div>
+                    
+                        <div class="selector-item"><input type="radio" name="seleccion" id="completed" value="Secular"
+                            (click)="statusSelector('completed')">
+                            <label for="completed" class="labelCompleted">Completed</label>
+                        </div>
+                    </div>   
+                </div>
 
 
-            <div class="btn-container">
-                <button class="btn-submit" type="submit">Submit</button>
+                <div class="btn-container">
+                    <button class="btn-submit" type="submit">Submit</button>
 
-                <button class="btn-back" (click)="goBack()">Go Back</button>
-            </div>
+                    <button class="btn-back" (click)="goBack()">Go Back</button>
+                </div>
 
-        </form>
+            </form>
 
-    </div>
+        </div>
+    
+
 </div>

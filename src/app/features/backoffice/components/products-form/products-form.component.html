@@ -1,11 +1,13 @@
 <div class="container">
+    <app-date></app-date>
     <div class="sidebar">
         <app-sidebar></app-sidebar>
     </div>
     <div class="body">
-        
-        <form (ngSubmit)="onSave()" [formGroup]="productForm">
-            <h1>{{title}}</h1>
+        <div class="title1"><app-title [title]="title" [image]="titleImage"></app-title><div>
+
+        <div class="form-container">
+          <form (ngSubmit)="onSave()" [formGroup]="productForm">
             <p>
                 <mat-form-field appearance="legacy">
                   <mat-label>Product Name</mat-label>
@@ -49,6 +51,9 @@
             </div>
             
         </form>
+
+        </div>  
+        
         
     </div>
 </div>

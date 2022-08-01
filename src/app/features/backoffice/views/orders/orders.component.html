@@ -4,11 +4,17 @@
     </div>
     <div class="body">
         <div class="otro">
+            <app-date></app-date>
             <div class="sidebar">
                 <app-sidebar></app-sidebar>
             </div>
             <div class="jaja"  >
                 <div class="title"><h1>Sales Administration</h1><div class="img-container">  <img src="./../../../../../assets/sales.png"></div></div>
+                <ng-template #loading class="loading">
+                    <div class="loading"><app-loader [display]=1></app-loader></div>
+                    
+                
+                </ng-template>
                 <div class="product-container">
                     
                     
@@ -40,11 +46,7 @@
                           
                         </tbody>
                     </table>
-                    <ng-template #loading class="loading">
-                        <div class="loading"><app-loader></app-loader></div>
-                        
                     
-                    </ng-template>
                 </div>
                 
             </div>

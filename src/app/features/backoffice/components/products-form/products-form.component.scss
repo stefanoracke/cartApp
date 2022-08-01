@@ -1,16 +1,25 @@
-.sidebar{
-    width: 250px;
-    height: 100%;
-}
-
 .body{
-    background:var(--mainWhite);
+    background:#fff;
     width: 100%;   
-    min-height: 106vh;
+    flex-direction: column;
     display: flex;
     justify-content: center;
-    
+    margin-left: 250px;
+    align-items: center;
 }
+
+.title1{
+    width: 100%;
+    display:flex;
+    margin-left:100px;
+    flex-direction: column;
+}
+
+mat-form-field{
+    width:700px;
+}
+
+
 
 .body h1{
     color: var(--red)

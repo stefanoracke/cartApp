@@ -3,6 +3,7 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="body">
+      <app-date></app-date>
         <div class="title"><h1>Products Administration</h1> <img src="./../../../../../assets/products.png"></div>
         <div class="product-container">
             
@@ -37,11 +38,11 @@
                    </td>
                   </tr>
                   
-                </tbody>
+                </tbody>  
             </table>
             
           </div>
-          <ng-template #loading ><div class="something"><div class="loading"><div class="spinner"></div></div> </div></ng-template>
+          <ng-template #loading ><div class="something"><div class="loading"><app-loader [display]="1"></app-loader></div> </div></ng-template>
         </div>
         
     </div>

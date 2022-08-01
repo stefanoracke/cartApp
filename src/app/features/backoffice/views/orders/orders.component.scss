@@ -9,7 +9,7 @@
     background: var(--secondaryBlue);
     width: 100%;
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     padding:10px;
     border-radius:20px;
     display:flex;
@@ -18,9 +18,9 @@
 }
 
 .img-container img{
-    width: 200px;
-    right: 90px;
-    top: -20px;
+    width: 250px;
+    right: 110px;
+    top: -40px;
     position:absolute;
 }
 
@@ -29,10 +29,9 @@
 }
 
 .loading{
-    display:flex;
-    height: 400px;
-    justify-content:center;
-    align-items: center;
+    position: absolute;
+    top: 250px;
+    right:350px;
 }
 
 .pending{
@@ -120,10 +119,7 @@
     flex-direction:column;
 }
 
-.loading{
-    position: absolute;
-    left: 800px
-}
+
 
 .btn-new:hover{
     transform: scale(0.9);
