@@ -1,0 +1,22 @@
+.title{
+    background: var(--secondaryBlue);
+    width: 90%;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    padding:10px;
+    border-radius:20px;
+    color: var(--mainWhite);
+    display:flex;
+    justify-content: space-between;
+}
+
+.title img{
+    position: absolute;
+    top: -50px;
+    width:250px;
+    right:110px;
+}
+
+.title h1{
+    padding-left: 15px;
+}

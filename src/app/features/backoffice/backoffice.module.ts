@@ -14,6 +14,7 @@ import { MaterialModule } from 'src/app/core/utils/material/material.module';
 import { ProductsFormComponent } from './components/products-form/products-form.component';
 import { OrdersEditComponent } from './views/orders-edit/orders-edit.component';
 import { IdfilterPipe } from 'src/app/core/utils/pipes/idfilter.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { IdfilterPipe } from 'src/app/core/utils/pipes/idfilter.pipe';
     OrdersComponent,
     ProductsFormComponent,
     OrdersEditComponent,
-    IdfilterPipe
+    IdfilterPipe,
+    
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { IdfilterPipe } from 'src/app/core/utils/pipes/idfilter.pipe';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    SharedModule,
     
   ]
 })

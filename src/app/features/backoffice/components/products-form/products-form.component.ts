@@ -15,6 +15,7 @@ export class ProductsFormComponent implements OnInit {
     price: ['',[Validators.required]],
     description: ['',[Validators.required]]
   });
+  public titleImage = "./../../../../../assets/products.png"
   image: any;
   imageURL?: string;
   public title = 'Edition of products'

@@ -10,7 +10,7 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./catalogue.component.scss']
 })
 export class CatalogueComponent implements OnInit {
-
+  
   loading=true;
   display = false;
   currentOrder!:OrderI

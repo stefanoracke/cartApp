@@ -3,11 +3,14 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="body">
+      <app-date></app-date>
+        <div class="title"><h1>Products Administration</h1> <img src="./../../../../../assets/products.png"></div>
         <div class="product-container">
-            <h1>Product Administration</h1>
+            
             <div class="newproduct">
-              <button (click)="navigateToNew()" class="btn-new"><img src="../../../../../assets/svgs/add.svg"  alt="">New Product</button>
+              <button (click)="navigateToNew()" class="btn-new"> <mat-icon>add</mat-icon> New Product</button>
             </div>
+            <div *ngIf="products$|async else loading" class="loading"> 
             <table>
                 <thead>
                   <tr>
@@ -20,6 +23,8 @@
                 </thead>
                 
                 <tbody>
+                         
+                  
                   
                   <tr *ngFor = "let item of products$ | async; let i = index">
                     <th scope="row">{{i}}</th>
@@ -33,8 +38,11 @@
                    </td>
                   </tr>
                   
-                </tbody>
+                </tbody>  
             </table>
+            
+          </div>
+          <ng-template #loading ><div class="something"><div class="loading"><app-loader [display]="1"></app-loader></div> </div></ng-template>
         </div>
         
     </div>

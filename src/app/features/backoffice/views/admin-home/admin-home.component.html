@@ -5,7 +5,8 @@
     <div class="body">
         
         <div class="dashboard-container">
-          <div class="date">{{todayString | date :'fullDate'}}</div>
+          <app-date></app-date>
+         
           <div class="welcome">
             <div class="welcome-title">
               <h1 *ngIf="auth.user |async as user; else secondWelcome" >Welcome back, {{user.displayName}}!</h1>
@@ -14,6 +15,7 @@
             </div>
             <div class="img-container"><img src="./../../../../../assets/mujercompu.png"></div>
           </div>
+          <div *ngIf="orders$|async; else loading">
             <div class="info-container">
                 <div class="item" id="earns">
                   <div class="text">
@@ -63,6 +65,8 @@
                 </div>
                 
             </div>
+          </div>
+          <ng-template #loading ><div class="something"><div class="loading"><app-loader [display]="1"></app-loader></div> </div></ng-template>
         </div>
     </div>
     

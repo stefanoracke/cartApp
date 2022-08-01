@@ -17,9 +17,11 @@
         </div>
         
     </div>
+    
     <div *ngIf="products$|async else loading" class="loading">        
     </div>
-    <ng-template #loading ><div class="something"><div class="loading">Loading...</div> </div></ng-template>
+    
+    <ng-template #loading ><div class="something"><div class="loading"><app-loader></app-loader></div> </div></ng-template>
     <div class="items-container">
         
         <div class="items" *ngFor="let item of products$ | async | filterName: filterByName">
